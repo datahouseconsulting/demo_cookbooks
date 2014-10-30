@@ -1,0 +1,8 @@
+start on filesystem and net-device-up IFACE=eth0
+stop on shutdown
+
+respawn
+script
+        chdir /srv/www/rcuh/current/
+        exec node server.js <%= node['app']['deploy_environment'] %> 2>&1 | logger -t RCUH -p local0.info
+end script
