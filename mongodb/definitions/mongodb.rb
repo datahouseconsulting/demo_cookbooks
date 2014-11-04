@@ -31,8 +31,7 @@ define :mongodb_instance, :mongodb_type => "mongod" , :action => [:enable, :star
   service_action = params[:action]
   service_notifies = params[:notifies]
 
-  #bind_ip = params[:bind_ip]
-  bind_ip = "0.0.0.0"
+  bind_ip = params[:bind_ip]
   port = params[:port]
 
   logpath = params[:logpath]
@@ -156,11 +155,13 @@ define :mongodb_instance, :mongodb_type => "mongod" , :action => [:enable, :star
   # if the mongod init file exists. Stop the mongod service and delete the file.
   if (File.exists?("#{node['mongodb']['init_dir']}/mongod"))
     # NOTE: Stop the mongod service since this script creates a new service called mongodb
+    Chef::Log.info("Stopping mongod service.")
     service "mongod" do
       action :stop
     end
 
     # NOTE: Need to delete the mongod file from /etc/init.d/ since its the wrong service file.
+    Chef::Log.info("Deleting mongod service file.")
     file "#{node['mongodb']['init_dir']}/mongod" do
       action :delete
     end
