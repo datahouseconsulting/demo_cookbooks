@@ -31,7 +31,8 @@ define :mongodb_instance, :mongodb_type => "mongod" , :action => [:enable, :star
   service_action = params[:action]
   service_notifies = params[:notifies]
 
-  bind_ip = params[:bind_ip]
+  #bind_ip = params[:bind_ip]
+  bind_id = "0.0.0.0"
   port = params[:port]
 
   logpath = params[:logpath]
