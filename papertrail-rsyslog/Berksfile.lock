@@ -1,0 +1,19 @@
+{
+  "sources": {
+    "papertrail-rsyslog": {
+      "path": "."
+    },
+    "apt": {
+      "locked_version": "2.5.3"
+    },
+    "minitest-handler": {
+      "locked_version": "0.1.7"
+    },
+    "rsyslog": {
+      "locked_version": "1.12.2"
+    },
+    "chef_handler": {
+      "locked_version": "1.1.6"
+    }
+  }
+}

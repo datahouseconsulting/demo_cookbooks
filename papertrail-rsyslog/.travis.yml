@@ -1,0 +1,12 @@
+gemfile:
+  - Gemfile
+language: ruby
+rvm:
+  - 1.9.3
+  - 2.1
+before_script: bundle exec berks install
+script: bundle exec strainer test -e kitchen
+notifications:
+  email:
+    - travis-ci@widgit.com
+    
